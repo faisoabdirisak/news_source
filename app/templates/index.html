@@ -1,0 +1,53 @@
+{% extends 'base.html'%}
+{% import 'macros.html' as macro%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if title %}
+        <title> {{ title }}</title>
+        {% else %}
+        <title> Faska-News Channel </title>
+        {% endif %}
+</head>
+<body>
+
+<!-- Styles block -->
+
+{% block styles%}
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+{% endblock %}
+<!-- Content block -->    
+
+    <!-- Content block -->
+{% block content %}
+   <!-- Everything
+   <h3>Business Headlines</h3>
+   <ul>
+    {% for popular_new in content %}
+    <li>{{ popular_new.title}}</li>
+{% endfor %}
+   </ul> -->
+    
+    <h1 class="text-center"> News Headlines</h1>
+    <ul>
+        {{ macro.displayNewsList(content)}}
+    </ul>
+  
+    
+    <ul>
+        {{ macro.displayNewsList(tech)}}
+    </ul>
+    
+    
+    <ul>
+        {{ macro.displayNewsList(articles)}}
+    </ul>
+
+    {% endblock%}
+
+</body>
+</html>

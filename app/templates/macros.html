@@ -1,0 +1,14 @@
+{% macro displayNewsList(news_list) %}
+{% for news in news_list %}
+<div class="d-flex flex-row">
+        <div class="col-xs-12 col-sm-4 col-md-4 mb-2 news-card">
+            <img src="{{ news.urlToImage }}" alt="{{ news.title }} news" class="img-responsive" >
+            <div class="text-justified">
+                <a href="/news/{{news.description}}">
+                    <h3>{{ news.title }}</h3></a>
+                </div>
+        </div>
+    </div>
+
+    {% endfor %}
+{% endmacro %}
